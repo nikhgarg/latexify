@@ -92,11 +92,16 @@ def latexify(fig_width=None, fig_height=None, columns=1):
 
     matplotlib.rcParams.update(params)
 
-def saveimage(name, fig = plt, extension = 'pdf'):
+def saveimage(name, fig = plt, extension = 'pdf', folder = 'plots/'):
     sns.despine()
-    plt.minorticks_off()
-    plt.grid(False, axis = "x")
-    plt.grid(False, axis = "y")
-    fig.savefig('{}.{}'.format(name, extension), bbox_inches = 'tight')
+
+    #Minor ticks off by default in matplotlib
+    # plt.minorticks_off()
+
+    #grid being off is the default for seaborn white style, so not needed.
+    # plt.grid(False, axis = "x")
+    # plt.grid(False, axis = "y")
+    
+    fig.savefig('{}{}.{}'.format(folder,name, extension), bbox_inches = 'tight')
 
 latexify()
