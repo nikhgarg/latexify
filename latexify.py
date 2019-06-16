@@ -1,5 +1,6 @@
-# Create figures in Python that handle LaTeX, and save images to files in my preferred formatting.
-# I typically place this code in the root of each of my projects, and import using:
+# Create figures in Python that handle LaTeX, and save images to files in my
+# preferred formatting. I typically place this code in the root of each of my
+# projects, and import using:
 # from latexify import *
 # which will also run the latexify() function on the import.
 
@@ -7,8 +8,6 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 from math import sqrt
 
 #Back-end to use depends on the system
@@ -21,17 +20,22 @@ matplotlib.backend_bases.register_backend('pdf', FigureCanvasPgf)
 import seaborn as sns
 sns.set_style("white")
 
-#my preferred palette. From https://seaborn.pydata.org/tutorial/color_palettes.html:
-# "The cubehelix color palette system makes sequential palettes with a linear increase or decrease in brightness and some variation in hue. This means that the information in your colormap will be preserved when converted to black and white (for printing) or when viewed by a colorblind individual."
-# I typically set the number of colors (below, 8) to the distinct colors I need in a given plot, so as to use the full range.
+#my preferred palette. From
+#https://seaborn.pydata.org/tutorial/color_palettes.html: "The cubehelix color
+#palette system makes sequential palettes with a linear increase or decrease in
+#brightness and some variation in hue. This means that the information in your
+#colormap will be preserved when converted to black and white (for printing) or
+#when viewed by a colorblind individual."
+
+# I typically set the number of colors (below, 8) to the distinct colors I need
+# in a given plot, so as to use the full range.
 sns.set_palette(sns.color_palette("cubehelix", 8))
 
 
-# The following is the latexify function. It allows you to create 2 column
-# or 1 column figures. You may also wish to alter the height or width of
-# the figure. The default settings are good for most cases. You may also
-# change the parameters such as labelsize and fontsize based on your
-# classfile. For this post, I'll use the following ACM classfile.
+# The following is the latexify function. It allows you to create 2 column or 1
+# column figures. You may also wish to alter the height or width of the figure.
+# The default settings are good for most cases. You may also change the
+# parameters such as labelsize and fontsize based on your classfile.
 def latexify(fig_width=None, fig_height=None, columns=1):
     """Set up matplotlib's RC params for LaTeX plotting.
     Call this before plotting a figure.
@@ -69,7 +73,8 @@ def latexify(fig_width=None, fig_height=None, columns=1):
               "pgf.texsystem": "pdflatex",
               'text.latex.preamble': ['\\usepackage{gensymb}', '\\usepackage[dvipsnames]{xcolor}'],
 
-              #values below are useful defaults. individual plot fontsizes are modified as necessary.
+              #values below are useful defaults. individual plot fontsizes are
+              #modified as necessary.
               'axes.labelsize': 13,  # fontsize for x and y labels
               'axes.titlesize': 13,
               'font.size': 10,
