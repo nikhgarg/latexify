@@ -1,12 +1,9 @@
-
-
-# Code to create figures in Python that handle LaTeX, and to save images to files in my preferred formatting.
+# Create figures in Python that handle LaTeX, and save images to files in my preferred formatting.
 # I typically place this code in the root of each of my projects, and import using:
 # from latexify import *
 # which will also run the latexify() function on the import.
 
 # Based on code from https://nipunbatra.github.io/blog/2014/latexify.html
-
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,7 +14,6 @@ from math import sqrt
 #Back-end to use depends on the system
 from matplotlib.backends.backend_pgf import FigureCanvasPgf
 matplotlib.backend_bases.register_backend('pdf', FigureCanvasPgf)
-
 # matplotlib.use('pgf')
 # from matplotlib.backends.backend_pgf import FigureCanvasPgf
 # matplotlib.backend_bases.register_backend('ps', FigureCanvasPgf)
